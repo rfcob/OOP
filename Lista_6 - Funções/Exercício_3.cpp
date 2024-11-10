@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//Função somando inteiros recursivamente a partir de um dado número até 0 por decremento.
 int soma_numeros(int numero){
 
     bool eh_um=true;

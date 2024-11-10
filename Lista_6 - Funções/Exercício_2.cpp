@@ -17,7 +17,7 @@ int main(){
 
     //sorte(); //é uma chamada
     x=sorte();  //é uma chamada se defininrmos x como bool o retorno true será ok. como inteiro o retorno true, que é 1 em c++ é um inteiro, logo, x é true.
-                  //se não definirmos x, não será uma chamada
+                //se não definirmos x, não será uma chamada
 
     int y = sorte()/10; //é uma chamada
 
