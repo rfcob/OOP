@@ -42,47 +42,65 @@ int main(){
     cadastro_veiculos carro[2];
     float km, valor;
     string gas, marca, modelo;
-    int selecao;
-    bool cond = true;
+    int opcao_main, opcao_2nd;
+    bool cond_menu_1 = true;
 
-    while(cond){
-        cout << "          OPÇÕES:        " << endl << "\n"
+    while(cond_menu_1){
+        cout << "          VEÌCULOS        " << endl << "\n"
              << "  1 - Cadastrar veículos \n"
-             << "  2 - Buscar Veículos   "<< endl << "\n"
+             << "  2 - Buscar Veículos   \n"
+             << "  3 - Atualizar Veículo   "<< endl << "\n"
              << "  Para sair digite zero  "<< endl << "\n";
         
-        cin >> selecao;
+        cout <<endl;
+        cout << "Entre opção: ";
+        cin >> opcao_main;
         
-        if(selecao==0){
-            cond=false;
+        if(opcao_main==0){
+            cond_menu_1=false;
         }
-        if(selecao==1){
-            cout >> "Entre com os dados do veículo." << endl << "\n";
+        if(opcao_main==1){
+            cout << "Entre com os dados do veículo." << endl << "\n";
 
             for(int i=0; i <2 ;i++){
-               cout << "Modelo -veículo " << i+1 <<": ";
-               cin >> modelo;
                cout << "Marca -veículo " << i+1 <<": ";
                cin >>  marca;
+               cout << "Modelo -veículo " << i+1 <<": ";
+               cin >> modelo;
                cout << "Combustível-veículo " << i+1 <<": ";
                cin >>  gas;
+               cout << "Preço - veículo " << i+1 <<": ";
+               cin >>  valor;
                cout << "Quilometragem - veículo " << i+1 <<": ";
                cin >>  km;
-               cout << " " << i+1 <<": ";
 
-               carro[i].init(modelo, marca, gas, valor, km);
+               carro[i].init(marca, modelo,  gas, valor, km);
+            }
         }
-        if(selecao==2){
-            cout << "Em construção" << endl;
+        if(opcao_main==2){
+            bool cond_menu_2=true;
+
+            while(cond_menu_2){
+                cout << "          VEÍCULOS        " << endl << "\n";
+                cout << "         Buscar por:        \n"
+                << "  1 - Fabricante/marca \n"
+                << "  2 - Modelo \n"
+                << "  3 - Combustível \n"
+                << "  4 - Preço (menor ou igual)  \n"
+                << "  5 - QUilometragem (menor ou igual) " << endl << "\n"
+                << "  Para sair digite zero  "<< endl << "\n";
+
+                cout <<endl;
+                cout << "Entre opção: ";
+                cin >> opcao_2nd;
+
+                if(opcao_2nd==0){
+                    cond_menu_2=false;
+                }
+            }
         }
 
-        }
-
-
-
-        //carro.init("gol","wv","gasolina",100.000, 134567);
-
-        cout << carro[1].get_valor() << endl;
+        cout << carro[1].get_modelo() << endl;
     }
 
 
