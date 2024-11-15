@@ -63,7 +63,7 @@ int main(){
     float km, valor;
     string gas, marca, modelo;
     int opcao_main, opcao_2nd;
-    bool cond_menu_1 = true;
+    bool cond_menu_1 = true, encontrou=false;
 
 
     //menu principal _________________________________________________
@@ -148,10 +148,16 @@ int main(){
 
                     for(int i=0;i<2;i++){
                         if(marca_opcao==carro[i].get_marca()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
-                        }else{
-                            cout << " Veículo não cadastrado " << endl << "\n";  
+                            cout << "Marca: "             << carro[i].get_marca() 
+                                 << " - Modelo: "            <<  carro[i].get_modelo()
+                                 << " - Combustível: "       <<  carro[i].get_combustivel()
+                                 << " - Valor:  "            <<  carro[i].get_valor() <<" R$ "
+                                 << " - Quilômetros Rodados: " <<  carro[i].get_km_rodados() << " km " << endl << "\n";
+                            encontrou=true;
                         }
+                    }
+                    if(!encontrou){
+                            cout << " Veículo não cadastrado " << endl << "\n";  
                     }
                     
                     cond_menu_2=sair_continuar();
@@ -180,10 +186,16 @@ int main(){
 
                     for(int i=0;i<2;i++){
                         if(modelo_opcao==carro[i].get_modelo()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
-                        }else{
-                            cout << " Veículo não cadastrado " << endl << "\n";  
+                            cout << "Marca: "             << carro[i].get_marca() 
+                                 << " - Modelo: "            <<  carro[i].get_modelo()
+                                 << " - Combustível: "       <<  carro[i].get_combustivel()
+                                 << " - Valor:  "            <<  carro[i].get_valor() <<" R$ "
+                                 << " - Quilômetros Rodados: " <<  carro[i].get_km_rodados() << " km " << endl << "\n";
+                            encontrou=true;
                         }
+                    }
+                    if(!encontrou){
+                            cout << " Veículo não cadastrado " << endl << "\n";  
                     }
                     
                     cond_menu_2=sair_continuar();
@@ -200,10 +212,16 @@ int main(){
 
                     for(int i=0;i<2;i++){
                         if(gas_opcao==carro[i].get_combustivel()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
-                        }else{
-                            cout << " Veículo não cadastrado " << endl << "\n";  
+                            cout << "Marca: "             << carro[i].get_marca() 
+                                 << " - Modelo: "            <<  carro[i].get_modelo()
+                                 << " - Combustível: "       <<  carro[i].get_combustivel()
+                                 << " - Valor:  "            <<  carro[i].get_valor() <<" R$ "
+                                 << " - Quilômetros Rodados: " <<  carro[i].get_km_rodados() << " km " << endl << "\n";
+                            encontrou=true;
                         }
+                    }
+                    if(!encontrou){
+                            cout << " Veículo não cadastrado " << endl << "\n";  
                     }
                     
                     cond_menu_2=sair_continuar();
@@ -221,10 +239,16 @@ int main(){
 
                     for(int i=0;i<2;i++){
                         if(valor_opcao >= carro[i].get_valor()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
-                        }else{
-                            cout << " Veículo não cadastrado " << endl << "\n";  
+                            cout << "Marca: "             << carro[i].get_marca() 
+                                 << " - Modelo: "            <<  carro[i].get_modelo()
+                                 << " - Combustível: "       <<  carro[i].get_combustivel()
+                                 << " - Valor:  "            <<  carro[i].get_valor() <<" R$ "
+                                 << " - Quilômetros Rodados: " <<  carro[i].get_km_rodados() << " km " << endl << "\n";
+                            encontrou=true;
                         }
+                    }
+                    if(!encontrou){
+                            cout << " Veículo não cadastrado " << endl << "\n";  
                     }
                     
                     cond_menu_2=sair_continuar();
@@ -242,12 +266,18 @@ int main(){
 
                     for(int i=0;i<2;i++){
                         if(km_opcao >= carro[i].get_valor()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
-                        }else{
-                            cout << " Veículo não cadastrado " << endl << "\n";  
+                            cout << "Marca: "             << carro[i].get_marca() 
+                                 << " - Modelo: "            <<  carro[i].get_modelo()
+                                 << " - Combustível: "       <<  carro[i].get_combustivel()
+                                 << " - Valor:  "            <<  carro[i].get_valor() <<" R$ "
+                                 << " - Quilômetros Rodados: " <<  carro[i].get_km_rodados() << " km " << endl << "\n";
+                            encontrou=true;
                         }
                     }
-                    
+                    if(!encontrou){
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                    }
+
                     cond_menu_2=sair_continuar();
                     cond_menu_1=cond_menu_2;
                 }
