@@ -33,7 +33,6 @@ int main(){
 //inicializando os métodos get e init.
  ret.init(2,1); 
 
- cout << "Altura: " << ret.get_altura() << " Base: " << ret.get_base() << endl; 
-
+ cout << "Altura: " << ret.get_altura() << " Base: " << ret.get_base() << endl << "\n"; 
 
 }
