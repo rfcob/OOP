@@ -2,6 +2,7 @@
 using namespace std;
 #include <string>
 
+//Definindo a classe _______________________________
 class cadastro_veiculos{
 
     private:
@@ -37,14 +38,35 @@ class cadastro_veiculos{
 
 };
 
+//função para retornar ao menu principal______________________
+bool sair_continuar(){
+
+    int j;
+
+    cout << " Digite 1 para Menu principal ou 2 para encerrar programa." << endl << "n";
+    cin >> j;
+
+    if(j==1){
+        return true;
+    }else if(j==2){
+        cout << "Programa encerrado." << endl <<"\n";
+        return false;
+    }
+
+}
+
+// funçao principal _____________________________
+
 int main(){
 
-    cadastro_veiculos carro[2];
+    cadastro_veiculos carro[2];  //definindo/instanciando objeto_________
     float km, valor;
     string gas, marca, modelo;
     int opcao_main, opcao_2nd;
     bool cond_menu_1 = true;
 
+
+    //menu principal _________________________________________________
     while(cond_menu_1){
         cout << "          VEÌCULOS        " << endl << "\n"
              << "  1 - Cadastrar veículos \n"
@@ -56,13 +78,15 @@ int main(){
         cout << "Entre opção: ";
         cin >> opcao_main;
         
-        if(opcao_main==0){
+        if(opcao_main==0){//_______________________________________________-sair
+            cout << "Programa encerrado." << endl <<"\n";
             cond_menu_1=false;
         }
-        if(opcao_main==1){
+        if(opcao_main==1){//________________________________________________cadastrar
+            int i=0, j;
             cout << "Entre com os dados do veículo." << endl << "\n";
 
-            for(int i=0; i <2 ;i++){
+            for(i; i <2 ;i++){
                cout << "Marca -veículo " << i+1 <<": ";
                cin >>  marca;
                cout << "Modelo -veículo " << i+1 <<": ";
@@ -76,11 +100,26 @@ int main(){
 
                carro[i].init(marca, modelo,  gas, valor, km);
             }
+
+            //cout << " Cadastro concluido. Digite 1 para Menu principal ou 2 para encerrar programa.";
+            //cin >> j;
+
+            cond_menu_1=sair_continuar();
+
+
+            /*if(j==1){
+                cond_menu_1=true;
+            }else if(j==2){
+                cout << "Programa encerrado." << endl <<"\n";
+                cond_menu_1=false;
+            }
+            */
         }
-        if(opcao_main==2){
+
+        if(opcao_main==2){//________________________________________________________exibir
             bool cond_menu_2=true;
 
-            while(cond_menu_2){
+            while(cond_menu_2){//_________________________________________________MENU 2
                 cout << "          VEÍCULOS        " << endl << "\n";
                 cout << "         Buscar por:        \n"
                 << "  1 - Fabricante/marca \n"
@@ -94,16 +133,88 @@ int main(){
                 cout << "Entre opção: ";
                 cin >> opcao_2nd;
 
-                if(opcao_2nd==0){
+                if(opcao_2nd==0){//___________________________________________sair - MENU 2
+                    cond_menu_2=false;
+                }
+                if(opcao_2nd==1){//______________________________________ exibir marca - MENU 2
+                    
+                    string str_opcao;
+
+                    cout << " Digite o a marca: ";
+                    cin >> str_opcao;
+
+                    for(int i=0;i<2;i++){
+                        if(str_opcao==carro[i].get_marca()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        }else{
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                        }
+                    }
+                    
+                    cond_menu_2=sair_continuar();
+                    cond_menu_1=cond_menu_2;
+                    /*cout << " Digite 1 para Menu principal ou 2 para encerrar programa.";
+                    int j;
+                    cin >> j;
+
+                    if(j==1){
+                    cond_menu_1=true;
+                    }else if(j=2){
+                    cout << "Programa encerrado." << endl <<"\n";
+                    cond_menu_1=false;
+                    }
+                    */
+                }
+                 
+                if(opcao_2nd==2){//__________________________________________exibir modelo - MENU 2
+                    
+                    string str_opcao;
+                    
+                    cout << " Digite o modelo: ";
+                    cin >> str_opcao;
+
+                    for(int i=0;i<2;i++){
+                        if(str_opcao==carro[i].get_modelo()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        }else{
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                        }
+                    }
+                    
+                    cond_menu_2=sair_continuar();
+                    cond_menu_1=cond_menu_2;
+                }
+                if(opcao_2nd==3){//__________________________________________exibir valor abaixo - MENU 2
+
+                    string str_opcao;
+
+                    cout << " Digite o modelo: ";
+                    cin >> str_opcao;
+
+                    for(int i=0;i<2;i++){
+                        if(str_opcao==carro[i].get_modelo()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        }else{
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                        }
+                    }
+                    
+                    cond_menu_2=sair_continuar();
+                    cond_menu_1=cond_menu_2;
+
+                }
+                if(opcao_2nd==4){
+                    cond_menu_2=false;
+                }
+                if(opcao_2nd==5){
                     cond_menu_2=false;
                 }
             }
         }
-
-        cout << carro[1].get_modelo() << endl;
     }
 
-
+    cout << carro[1].get_modelo() << endl;
+     
     return 0;
 
 }
