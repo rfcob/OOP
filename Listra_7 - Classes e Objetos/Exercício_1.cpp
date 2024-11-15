@@ -42,17 +42,49 @@ int main(){
     cadastro_veiculos carro[2];
     float km, valor;
     string gas, marca, modelo;
+    int selecao;
+    bool cond = true;
 
-    for(int i=0; i <2 ;i++){
+    while(cond){
+        cout << "          OPÇÕES:        " << endl << "\n"
+             << "  1 - Cadastrar veículos \n"
+             << "  2 - Buscar Veículos   "<< endl << "\n"
+             << "  Para sair digite zero  "<< endl << "\n";
+        
+        cin >> selecao;
+        
+        if(selecao==0){
+            cond=false;
+        }
+        if(selecao==1){
+            cout >> "Entre com os dados do veículo." << endl << "\n";
 
-        cin >> modelo >> marca >> gas >> modelo >> km; 
-        carro[i].init(modelo, marca, gas, valor, km);
+            for(int i=0; i <2 ;i++){
+               cout << "Modelo -veículo " << i+1 <<": ";
+               cin >> modelo;
+               cout << "Marca -veículo " << i+1 <<": ";
+               cin >>  marca;
+               cout << "Combustível-veículo " << i+1 <<": ";
+               cin >>  gas;
+               cout << "Quilometragem - veículo " << i+1 <<": ";
+               cin >>  km;
+               cout << " " << i+1 <<": ";
 
+               carro[i].init(modelo, marca, gas, valor, km);
+        }
+        if(selecao==2){
+            cout << "Em construção" << endl;
+        }
+
+        }
+
+
+
+        //carro.init("gol","wv","gasolina",100.000, 134567);
+
+        cout << carro[1].get_valor() << endl;
     }
 
-    //carro.init("gol","wv","gasolina",100.000, 134567);
-
-    cout << carro[1].get_valor() << endl;
 
     return 0;
 
