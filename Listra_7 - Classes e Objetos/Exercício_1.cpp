@@ -43,7 +43,7 @@ bool sair_continuar(){
 
     int j;
 
-    cout << " Digite 1 para Menu principal ou 2 para encerrar programa." << endl << "n";
+    cout << " Digite 1 para Menu principal ou 2 para encerrar programa." << endl << "\n";
     cin >> j;
 
     if(j==1){
@@ -71,12 +71,13 @@ int main(){
         cout << "          VEÌCULOS        " << endl << "\n"
              << "  1 - Cadastrar veículos \n"
              << "  2 - Buscar Veículos   \n"
-             << "  3 - Atualizar Veículo   "<< endl << "\n"
+             //<< "  3 - Atualizar Veículo   "<< endl << "\n"
              << "  Para sair digite zero  "<< endl << "\n";
         
         cout <<endl;
         cout << "Entre opção: ";
         cin >> opcao_main;
+        cout <<endl;
         
         if(opcao_main==0){//_______________________________________________-sair
             cout << "Programa encerrado." << endl <<"\n";
@@ -126,26 +127,28 @@ int main(){
                 << "  2 - Modelo \n"
                 << "  3 - Combustível \n"
                 << "  4 - Preço (menor ou igual)  \n"
-                << "  5 - QUilometragem (menor ou igual) " << endl << "\n"
+                << "  5 - Quilometragem (menor ou igual) " << endl << "\n"
                 << "  Para sair digite zero  "<< endl << "\n";
 
                 cout <<endl;
                 cout << "Entre opção: ";
                 cin >> opcao_2nd;
+                cout <<endl;
 
                 if(opcao_2nd==0){//___________________________________________sair - MENU 2
                     cond_menu_2=false;
                 }
                 if(opcao_2nd==1){//______________________________________ exibir marca - MENU 2
                     
-                    string str_opcao;
+                    string marca_opcao;
 
                     cout << " Digite o a marca: ";
-                    cin >> str_opcao;
+                    cin >> marca_opcao;
+                    cout <<endl;
 
                     for(int i=0;i<2;i++){
-                        if(str_opcao==carro[i].get_marca()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        if(marca_opcao==carro[i].get_marca()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
                         }else{
                             cout << " Veículo não cadastrado " << endl << "\n";  
                         }
@@ -168,14 +171,16 @@ int main(){
                  
                 if(opcao_2nd==2){//__________________________________________exibir modelo - MENU 2
                     
-                    string str_opcao;
+                    string modelo_opcao;
                     
+                    cout <<endl;
                     cout << " Digite o modelo: ";
-                    cin >> str_opcao;
+                    cin >> modelo_opcao;
+                    cout <<endl;
 
                     for(int i=0;i<2;i++){
-                        if(str_opcao==carro[i].get_modelo()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        if(modelo_opcao==carro[i].get_modelo()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
                         }else{
                             cout << " Veículo não cadastrado " << endl << "\n";  
                         }
@@ -184,16 +189,18 @@ int main(){
                     cond_menu_2=sair_continuar();
                     cond_menu_1=cond_menu_2;
                 }
-                if(opcao_2nd==3){//__________________________________________exibir valor abaixo - MENU 2
+                if(opcao_2nd==3){//__________________________________________exibir combustível - MENU 2
 
-                    string str_opcao;
+                    string gas_opcao;
 
-                    cout << " Digite o modelo: ";
-                    cin >> str_opcao;
+                    cout <<endl;        
+                    cout << " Digite o combustível ";
+                    cin >> gas_opcao;
+                    cout <<endl;
 
                     for(int i=0;i<2;i++){
-                        if(str_opcao==carro[i].get_modelo()){
-                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados();
+                        if(gas_opcao==carro[i].get_combustivel()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
                         }else{
                             cout << " Veículo não cadastrado " << endl << "\n";  
                         }
@@ -203,17 +210,50 @@ int main(){
                     cond_menu_1=cond_menu_2;
 
                 }
-                if(opcao_2nd==4){
-                    cond_menu_2=false;
+                if(opcao_2nd==4){//__________________________________________exibir valor abaixo - MENU 2
+                    
+                    float valor_opcao;
+
+                    cout <<endl;
+                    cout << " Digite o valor: ";
+                    cin >> valor_opcao;
+                    cout <<endl;
+
+                    for(int i=0;i<2;i++){
+                        if(valor_opcao >= carro[i].get_valor()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
+                        }else{
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                        }
+                    }
+                    
+                    cond_menu_2=sair_continuar();
+                    cond_menu_1=cond_menu_2;
+
                 }
-                if(opcao_2nd==5){
-                    cond_menu_2=false;
+                if(opcao_2nd==5){//__________________________________________exibir valor quilometragem- MENU 2
+                    
+                    float km_opcao;
+
+                    cout <<endl;
+                    cout << " Digite a quilometragem ";
+                    cin >> km_opcao;
+                    cout <<endl;
+
+                    for(int i=0;i<2;i++){
+                        if(km_opcao >= carro[i].get_valor()){
+                            cout << carro[i].get_marca() << " " <<  carro[i].get_modelo()<< " " << carro[i].get_combustivel()<< " " <<  carro[i].get_valor() << " " << carro[i].get_km_rodados() << endl << "\n";
+                        }else{
+                            cout << " Veículo não cadastrado " << endl << "\n";  
+                        }
+                    }
+                    
+                    cond_menu_2=sair_continuar();
+                    cond_menu_1=cond_menu_2;
                 }
             }
         }
     }
-
-    cout << carro[1].get_modelo() << endl;
      
     return 0;
 
