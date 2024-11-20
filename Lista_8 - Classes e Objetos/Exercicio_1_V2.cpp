@@ -21,15 +21,16 @@ class cadastro_veiculos{
     } 
     
     float stringToFloat(const string& str) { 
-        try { return stof(str); 
-        } catch (const invalid_argument& e) {
-             cout << "Entrada inválida: não é um número." << endl; 
-        } catch (const out_of_range& e) { 
-            cout << "Entrada inválida: número fora do intervalo." << endl; 
-        } 
-        
-        return 0.0f;
+            while(true){
+                try { return stof(str);
+                } catch (const invalid_argument& e) {
+                    cout << "Entrada inválida: não é um número." << endl; 
+                } catch (const out_of_range& e) { 
+                    cout << "Entrada inválida: número fora do intervalo." << endl; 
+                } 
+            }
     }
+    
 
     string get_marca(){ 
         return marca;

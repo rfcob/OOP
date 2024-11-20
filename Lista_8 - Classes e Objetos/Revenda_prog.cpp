@@ -3,7 +3,7 @@ using namespace std;
 #include <string>
 #include <limits> 
 
-//Definindo a classe _______________________________
+//Definindo a classe ___________________________________________________________________________________________________
 class cadastro_veiculos{
 
     private:
@@ -39,7 +39,7 @@ class cadastro_veiculos{
 
 };
 
-//função para retornar ao menu principal______________________
+//função para retornar ao menu principal_________________________________________________________________________________
 bool sair_continuar(){
 
     int j;
@@ -56,19 +56,18 @@ bool sair_continuar(){
 
 }
 
-
-// funçao principal _____________________________
-
+// funçao principal ____________________________________________________________________________________________________
 int main(){
 
-    cadastro_veiculos carro[10];  //definindo/instanciando objeto_________
+    cadastro_veiculos carro[10];  //definindo/instanciando objeto_______________________________________________________
+
     float km, valor;
     string gas, marca, modelo;
-    int opcao_main, opcao_2nd, tamanho_lista=2;
+    int opcao_main, opcao_2nd, tamanho_lista;
     bool cond_menu_1 = true, encontrou=false;
 
 
-    //menu principal _________________________________________________
+//menu principal ______________________________________________________________________________________________________
     while(cond_menu_1){
         cout << "          VEÌCULOS        " << endl << "\n"
              << "  1 - Cadastrar veículos \n"
@@ -89,13 +88,17 @@ int main(){
             }
         }
         
-        if(opcao_main==0){//_______________________________________________-sair
+        if(opcao_main==0){//________________________________________________________________________________________-sair
             cout << "Programa encerrado." << endl <<"\n";
             cond_menu_1=false;
         }
-        if(opcao_main==1){//________________________________________________cadastrar
+        if(opcao_main==1){//_____________________________________________________________________________________cadastrar
             int i=0, j;
-            cout << "Entre com os dados do veículo." << endl << "\n";
+
+            cout << "Entre com a quantidade de carros que deseja cadastrar (limite máximo 10 veículos): ";
+            cin >> tamanho_lista;
+
+            cout << "\nEntre com os dados do veículo." << endl << "\n";
 
             for(i; i <tamanho_lista ;i++){
                cout << "Marca -veículo " << i+1 <<": ";
@@ -132,25 +135,15 @@ int main(){
                carro[i].init(marca, modelo,  gas, valor, km);
             }
 
-            //cout << " Cadastro concluido. Digite 1 para Menu principal ou 2 para encerrar programa.";
-            //cin >> j;
-
             cond_menu_1=sair_continuar();
 
-
-            /*if(j==1){
-                cond_menu_1=true;
-            }else if(j==2){
-                cout << "Programa encerrado." << endl <<"\n";
-                cond_menu_1=false;
-            }
-            */
         }
 
-        if(opcao_main==2){//________________________________________________________exibir
+        if(opcao_main==2){//________________________________________________________________________________________exibir
             bool cond_menu_2=true;
 
-            while(cond_menu_2){//_________________________________________________MENU 2
+//menu secundário _________________________________________________________________________________________________________
+            while(cond_menu_2){//___________________________________________________________________________________MENU 2
                 cout << "          VEÍCULOS        " << endl << "\n";
                 cout << "         Buscar por:        \n"
                 << "  1 - Fabricante/marca \n"
@@ -173,10 +166,10 @@ int main(){
                     }
                 }
         
-                if(opcao_2nd==0){//___________________________________________sair - MENU 2
+                if(opcao_2nd==0){//_________________________________________________________________________sair - MENU 2
                     cond_menu_2=false;
                 }
-                if(opcao_2nd==1){//______________________________________ exibir marca - MENU 2
+                if(opcao_2nd==1){//________________________________________________________________ exibir marca - MENU 2
                     
                     string marca_opcao;
 
@@ -200,20 +193,10 @@ int main(){
                     
                     cond_menu_2=sair_continuar();
                     cond_menu_1=cond_menu_2;
-                    /*cout << " Digite 1 para Menu principal ou 2 para encerrar programa.";
-                    int j;
-                    cin >> j;
 
-                    if(j==1){
-                    cond_menu_1=true;
-                    }else if(j=2){
-                    cout << "Programa encerrado." << endl <<"\n";
-                    cond_menu_1=false;
-                    }
-                    */
                 }
                  
-                if(opcao_2nd==2){//__________________________________________exibir modelo - MENU 2
+                if(opcao_2nd==2){//______________________________________________________________exibir modelo - MENU 2
                     
                     string modelo_opcao;
                     
@@ -239,7 +222,7 @@ int main(){
                     cond_menu_2=sair_continuar();
                     cond_menu_1=cond_menu_2;
                 }
-                if(opcao_2nd==3){//__________________________________________exibir combustível - MENU 2
+                if(opcao_2nd==3){//_________________________________________________________exibir combustível - MENU 2
 
                     string gas_opcao;
 
@@ -266,7 +249,7 @@ int main(){
                     cond_menu_1=cond_menu_2;
 
                 }
-                if(opcao_2nd==4){//__________________________________________exibir valor abaixo - MENU 2
+                if(opcao_2nd==4){//__________________________________________________________exibir valor abaixo - MENU 2
                     
                     float valor_opcao;
 
@@ -293,7 +276,7 @@ int main(){
                     cond_menu_1=cond_menu_2;
 
                 }
-                if(opcao_2nd==5){//__________________________________________exibir valor quilometragem- MENU 2
+                if(opcao_2nd==5){//_____________________________________________________exibir valor quilometragem- MENU 2
                     
                     float km_opcao;
 
