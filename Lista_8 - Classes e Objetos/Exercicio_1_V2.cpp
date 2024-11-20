@@ -12,12 +12,23 @@ class cadastro_veiculos{
 
     public:
 
-    void init( string marca, string modelo, string combustivel, float valor, float km_rodados){
+    void init( string marca, string modelo, string combustivel, string valor, string km_rodados){
         this->marca=marca;
         this->modelo=modelo;
         this->combustivel=combustivel;
-        this->valor=valor;
-        this->km_rodados=km_rodados;
+        this->valor = stringToFloat(valor); 
+        this->km_rodados = stringToFloat(km_rodados); 
+    } 
+    
+    float stringToFloat(const string& str) { 
+        try { return stof(str); 
+        } catch (const invalid_argument& e) {
+             cout << "Entrada inválida: não é um número." << endl; 
+        } catch (const out_of_range& e) { 
+            cout << "Entrada inválida: número fora do intervalo." << endl; 
+        } 
+        
+        return 0.0f;
     }
 
     string get_marca(){ 
