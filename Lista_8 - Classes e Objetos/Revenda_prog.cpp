@@ -10,6 +10,7 @@ class cadastro_veiculos{
 
     string marca, modelo, combustivel;
     float valor, km_rodados;
+    static int num_carros;
 
     public:
 
@@ -19,7 +20,14 @@ class cadastro_veiculos{
         this->combustivel=combustivel;
         this->valor=valor;
         this->km_rodados=km_rodados;
+        this->num_carros+=1;
     }
+
+    void count_carros(){
+        num_carros = num_carros+1;
+    }
+
+    static int num_count_carros();
 
     string get_marca(){ 
         return marca;
@@ -37,6 +45,11 @@ class cadastro_veiculos{
         return km_rodados;
     }
 
+};
+
+int cadastro_veiculos::num_carros;
+int cadastro_veiculos::num_count_carros(){
+    return  num_carros;
 };
 
 //função para retornar ao menu principal_________________________________________________________________________________
@@ -72,6 +85,7 @@ int main(){
         cout << "          VEÌCULOS        " << endl << "\n"
              << "  1 - Cadastrar veículos \n"
              << "  2 - Buscar Veículos   \n"
+             << "  3 - Verificar Numero de Carros Cadastrados "<< endl << "\n"
              //<< "  3 - Atualizar Veículo   "<< endl << "\n"
              << "  Para sair digite zero  "<< endl << "\n";
         
@@ -303,6 +317,9 @@ int main(){
                     cond_menu_1=cond_menu_2;
                 }
             }
+        }
+        if(opcao_main==3){
+            cout <<" Numero de carros cadastrados: "<< cadastro_veiculos::num_count_carros() << endl << "\n";
         }
     }
      
