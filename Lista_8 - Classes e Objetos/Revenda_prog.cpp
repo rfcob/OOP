@@ -319,7 +319,7 @@ int main(){
             }
         }
         if(opcao_main==3){
-            cout <<" Numero de carros cadastrados: "<< cadastro_veiculos::num_count_carros() << endl << "\n";
+            cout <<"\nNumero de carros cadastrados: "<< cadastro_veiculos::num_count_carros() << endl << "\n";
         }
     }
      
