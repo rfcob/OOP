@@ -57,7 +57,7 @@ bool sair_continuar(){
 
     int j;
 
-    cout << " Digite 1 para Menu principal ou 2 para encerrar programa." << endl << "\n";
+    cout << " Digite 1 para retornar ao menu ou 2 para encerrar programa." << endl << "\n";
     cin >> j;
 
     if(j==1){
@@ -165,7 +165,7 @@ int main(){
                 << "  3 - Combustível \n"
                 << "  4 - Preço (menor ou igual)  \n"
                 << "  5 - Quilometragem (menor ou igual) " << endl << "\n"
-                << "  Para sair digite zero  "<< endl << "\n";
+                << "  Para menu principal, digite 0 "<< endl << "\n";
                 
                 cout <<endl;
                 while(true){
@@ -206,7 +206,7 @@ int main(){
                     }
                     
                     cond_menu_2=sair_continuar();
-                    cond_menu_1=cond_menu_2;
+                    //cond_menu_1=cond_menu_2;
 
                 }
                  
@@ -234,7 +234,7 @@ int main(){
                     }
                     
                     cond_menu_2=sair_continuar();
-                    cond_menu_1=cond_menu_2;
+                    //cond_menu_1=cond_menu_2;
                 }
                 if(opcao_2nd==3){//_________________________________________________________exibir combustível - MENU 2
 
@@ -260,7 +260,7 @@ int main(){
                     }
                     
                     cond_menu_2=sair_continuar();
-                    cond_menu_1=cond_menu_2;
+                    //cond_menu_1=cond_menu_2;
 
                 }
                 if(opcao_2nd==4){//__________________________________________________________exibir valor abaixo - MENU 2
@@ -287,7 +287,7 @@ int main(){
                     }
                     
                     cond_menu_2=sair_continuar();
-                    cond_menu_1=cond_menu_2;
+                    //cond_menu_1=cond_menu_2;
 
                 }
                 if(opcao_2nd==5){//_____________________________________________________exibir valor quilometragem- MENU 2
@@ -314,7 +314,7 @@ int main(){
                     }
 
                     cond_menu_2=sair_continuar();
-                    cond_menu_1=cond_menu_2;
+                    //cond_menu_1=cond_menu_2;
                 }
             }
         }
