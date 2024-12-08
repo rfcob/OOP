@@ -1,5 +1,6 @@
 #include "cadastro_veiculos.hpp"
 
+
 void cadastro_veiculos::init(string marca, string modelo, string combustivel, float valor, float km_rodados) {
     this->marca = marca;
     this->modelo = modelo;
